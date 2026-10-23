@@ -1,0 +1,21 @@
+Matrix size: 2048x2048  (16 MB per matrix)
+Block size:  64x64
+
+[NAIVE]   10 runs: 938.345 ms  |  avg: 93.8345 ms/run
+[BLOCKED] 10 runs: 421.056 ms  |  avg: 42.1056 ms/run
+
+[OK] Results match.
+
+ Performance counter stats for './transpose_no_opt':
+
+           1435.66 msec task-clock:u                                                          
+                 0      context-switches:u                                                    
+                 0      cpu-migrations:u                                                      
+             12431      page-faults:u                                                         
+
+       1.455428387 seconds time elapsed
+
+       1.397772000 seconds user
+       0.040165000 seconds sys
+
+

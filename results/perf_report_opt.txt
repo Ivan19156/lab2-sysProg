@@ -1,0 +1,813 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'task-clock:ppp'
+# Event count (approx.): 572250000
+#
+# Children      Self  Command        Shared Object         Symbol                                                                                                                                                                               
+# ........  ........  .............  ....................  .....................................................................................................................................................................................
+#
+    99.69%     0.00%  transpose_opt  transpose_opt         [.] _start
+            |
+            ---_start
+               __libc_start_main
+               |          
+                --99.61%--0x7d4b1342a601
+                          |          
+                          |--94.23%--main
+                          |          |          
+                          |          |--44.04%--transpose_naive(float const*, float*, int) (inlined)
+                          |          |          
+                          |          |--43.60%--transpose_blocked(float const*, float*, int) (inlined)
+                          |          |          
+                          |          |--4.02%--fill_matrix(float*, int) (inlined)
+                          |          |          |          
+                          |          |          |--1.44%--rand
+                          |          |          |          |          
+                          |          |          |          |--0.79%--random_r
+                          |          |          |          |          
+                          |          |          |           --0.66%--random
+                          |          |          |          
+                          |          |           --1.22%--asm_exc_page_fault
+                          |          |                     exc_page_fault
+                          |          |                     do_user_addr_fault
+                          |          |                     |          
+                          |          |                      --1.05%--handle_mm_fault
+                          |          |                                __handle_mm_fault
+                          |          |                                do_anonymous_page
+                          |          |                                |          
+                          |          |                                 --0.57%--vma_alloc_folio
+                          |          |                                           __folio_alloc
+                          |          |                                           __alloc_pages
+                          |          |          
+                          |          |--1.31%--verify(float const*, float const*, int) (inlined)
+                          |          |          
+                          |           --1.09%--__munmap
+                          |                     entry_SYSCALL_64_after_hwframe
+                          |                     do_syscall_64
+                          |                     x64_sys_call
+                          |                     __x64_sys_munmap
+                          |                     __vm_munmap
+                          |                     do_vmi_munmap
+                          |                     do_vmi_align_munmap
+                          |                     unmap_region.constprop.0
+                          |                     |          
+                          |                      --0.70%--tlb_finish_mmu
+                          |                                tlb_batch_pages_flush
+                          |                                free_pages_and_swap_cache
+                          |                                release_pages
+                          |          
+                           --4.59%--0x7d4b1359855e
+                                     |          
+                                      --4.37%--asm_exc_page_fault
+                                                exc_page_fault
+                                                do_user_addr_fault
+                                                |          
+                                                 --3.32%--handle_mm_fault
+                                                           |          
+                                                            --3.28%--__handle_mm_fault
+                                                                      |          
+                                                                       --3.23%--do_anonymous_page
+                                                                                 |          
+                                                                                  --2.45%--vma_alloc_folio
+                                                                                            __folio_alloc
+                                                                                            __alloc_pages
+                                                                                            |          
+                                                                                             --2.36%--clear_page_erms
+
+    99.69%     0.00%  transpose_opt  libc.so.6             [.] __libc_start_main
+            |
+            ---__libc_start_main
+               |          
+                --99.61%--0x7d4b1342a601
+                          |          
+                          |--94.23%--main
+                          |          |          
+                          |          |--44.04%--transpose_naive(float const*, float*, int) (inlined)
+                          |          |          
+                          |          |--43.60%--transpose_blocked(float const*, float*, int) (inlined)
+                          |          |          
+                          |          |--4.02%--fill_matrix(float*, int) (inlined)
+                          |          |          |          
+                          |          |          |--1.44%--rand
+                          |          |          |          |          
+                          |          |          |          |--0.79%--random_r
+                          |          |          |          |          
+                          |          |          |           --0.66%--random
+                          |          |          |          
+                          |          |           --1.22%--asm_exc_page_fault
+                          |          |                     exc_page_fault
+                          |          |                     do_user_addr_fault
+                          |          |                     |          
+                          |          |                      --1.05%--handle_mm_fault
+                          |          |                                __handle_mm_fault
+                          |          |                                do_anonymous_page
+                          |          |                                |          
+                          |          |                                 --0.57%--vma_alloc_folio
+                          |          |                                           __folio_alloc
+                          |          |                                           __alloc_pages
+                          |          |          
+                          |          |--1.31%--verify(float const*, float const*, int) (inlined)
+                          |          |          
+                          |           --1.09%--__munmap
+                          |                     entry_SYSCALL_64_after_hwframe
+                          |                     do_syscall_64
+                          |                     x64_sys_call
+                          |                     __x64_sys_munmap
+                          |                     __vm_munmap
+                          |                     do_vmi_munmap
+                          |                     do_vmi_align_munmap
+                          |                     unmap_region.constprop.0
+                          |                     |          
+                          |                      --0.70%--tlb_finish_mmu
+                          |                                tlb_batch_pages_flush
+                          |                                free_pages_and_swap_cache
+                          |                                release_pages
+                          |          
+                           --4.59%--0x7d4b1359855e
+                                     |          
+                                      --4.37%--asm_exc_page_fault
+                                                exc_page_fault
+                                                do_user_addr_fault
+                                                |          
+                                                 --3.32%--handle_mm_fault
+                                                           |          
+                                                            --3.28%--__handle_mm_fault
+                                                                      |          
+                                                                       --3.23%--do_anonymous_page
+                                                                                 |          
+                                                                                  --2.45%--vma_alloc_folio
+                                                                                            __folio_alloc
+                                                                                            __alloc_pages
+                                                                                            |          
+                                                                                             --2.36%--clear_page_erms
+
+    99.61%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b1342a601
+            |
+            ---0x7d4b1342a601
+               |          
+               |--94.23%--main
+               |          |          
+               |          |--44.04%--transpose_naive(float const*, float*, int) (inlined)
+               |          |          
+               |          |--43.60%--transpose_blocked(float const*, float*, int) (inlined)
+               |          |          
+               |          |--4.02%--fill_matrix(float*, int) (inlined)
+               |          |          |          
+               |          |          |--1.44%--rand
+               |          |          |          |          
+               |          |          |          |--0.79%--random_r
+               |          |          |          |          
+               |          |          |           --0.66%--random
+               |          |          |          
+               |          |           --1.22%--asm_exc_page_fault
+               |          |                     exc_page_fault
+               |          |                     do_user_addr_fault
+               |          |                     |          
+               |          |                      --1.05%--handle_mm_fault
+               |          |                                __handle_mm_fault
+               |          |                                do_anonymous_page
+               |          |                                |          
+               |          |                                 --0.57%--vma_alloc_folio
+               |          |                                           __folio_alloc
+               |          |                                           __alloc_pages
+               |          |          
+               |          |--1.31%--verify(float const*, float const*, int) (inlined)
+               |          |          
+               |           --1.09%--__munmap
+               |                     entry_SYSCALL_64_after_hwframe
+               |                     do_syscall_64
+               |                     x64_sys_call
+               |                     __x64_sys_munmap
+               |                     __vm_munmap
+               |                     do_vmi_munmap
+               |                     do_vmi_align_munmap
+               |                     unmap_region.constprop.0
+               |                     |          
+               |                      --0.70%--tlb_finish_mmu
+               |                                tlb_batch_pages_flush
+               |                                free_pages_and_swap_cache
+               |                                release_pages
+               |          
+                --4.59%--0x7d4b1359855e
+                          |          
+                           --4.37%--asm_exc_page_fault
+                                     exc_page_fault
+                                     do_user_addr_fault
+                                     |          
+                                      --3.32%--handle_mm_fault
+                                                |          
+                                                 --3.28%--__handle_mm_fault
+                                                           |          
+                                                            --3.23%--do_anonymous_page
+                                                                      |          
+                                                                       --2.45%--vma_alloc_folio
+                                                                                 __folio_alloc
+                                                                                 __alloc_pages
+                                                                                 |          
+                                                                                  --2.36%--clear_page_erms
+
+    94.23%    90.04%  transpose_opt  transpose_opt         [.] main
+            |          
+            |--90.04%--_start
+            |          __libc_start_main
+            |          0x7d4b1342a601
+            |          main
+            |          |          
+            |          |--44.04%--transpose_naive(float const*, float*, int) (inlined)
+            |          |          
+            |          |--43.60%--transpose_blocked(float const*, float*, int) (inlined)
+            |          |          
+            |          |--1.31%--verify(float const*, float const*, int) (inlined)
+            |          |          
+            |           --1.09%--fill_matrix(float*, int) (inlined)
+            |          
+             --4.19%--main
+                       |          
+                       |--2.93%--fill_matrix(float*, int) (inlined)
+                       |          |          
+                       |          |--1.44%--rand
+                       |          |          |          
+                       |          |          |--0.79%--random_r
+                       |          |          |          
+                       |          |           --0.66%--random
+                       |          |          
+                       |           --1.22%--asm_exc_page_fault
+                       |                     exc_page_fault
+                       |                     do_user_addr_fault
+                       |                     |          
+                       |                      --1.05%--handle_mm_fault
+                       |                                __handle_mm_fault
+                       |                                do_anonymous_page
+                       |                                |          
+                       |                                 --0.57%--vma_alloc_folio
+                       |                                           __folio_alloc
+                       |                                           __alloc_pages
+                       |          
+                        --1.09%--__munmap
+                                  entry_SYSCALL_64_after_hwframe
+                                  do_syscall_64
+                                  x64_sys_call
+                                  __x64_sys_munmap
+                                  __vm_munmap
+                                  do_vmi_munmap
+                                  do_vmi_align_munmap
+                                  unmap_region.constprop.0
+                                  |          
+                                   --0.70%--tlb_finish_mmu
+                                             tlb_batch_pages_flush
+                                             free_pages_and_swap_cache
+                                             release_pages
+
+    44.04%     0.00%  transpose_opt  transpose_opt         [.] transpose_naive(float const*, float*, int) (inlined)
+            |
+            ---transpose_naive(float const*, float*, int) (inlined)
+
+    43.60%     0.00%  transpose_opt  transpose_opt         [.] transpose_blocked(float const*, float*, int) (inlined)
+            |
+            ---transpose_blocked(float const*, float*, int) (inlined)
+
+     5.77%     0.00%  transpose_opt  [kernel.kallsyms]     [.] asm_exc_page_fault
+            |
+            ---asm_exc_page_fault
+               exc_page_fault
+               do_user_addr_fault
+               |          
+                --4.50%--handle_mm_fault
+                          |          
+                           --4.46%--__handle_mm_fault
+                                     |          
+                                      --4.28%--do_anonymous_page
+                                                |          
+                                                |--3.01%--vma_alloc_folio
+                                                |          __folio_alloc
+                                                |          __alloc_pages
+                                                |          |          
+                                                |           --2.80%--clear_page_erms
+                                                |          
+                                                 --0.79%--__mem_cgroup_charge
+                                                           |          
+                                                            --0.74%--charge_memcg
+
+     5.77%     0.00%  transpose_opt  [kernel.kallsyms]     [.] exc_page_fault
+            |
+            ---exc_page_fault
+               do_user_addr_fault
+               |          
+                --4.50%--handle_mm_fault
+                          |          
+                           --4.46%--__handle_mm_fault
+                                     |          
+                                      --4.28%--do_anonymous_page
+                                                |          
+                                                |--3.01%--vma_alloc_folio
+                                                |          __folio_alloc
+                                                |          __alloc_pages
+                                                |          |          
+                                                |           --2.80%--clear_page_erms
+                                                |          
+                                                 --0.79%--__mem_cgroup_charge
+                                                           |          
+                                                            --0.74%--charge_memcg
+
+     5.77%     1.09%  transpose_opt  [kernel.kallsyms]     [.] do_user_addr_fault
+            |          
+            |--4.67%--do_user_addr_fault
+            |          |          
+            |           --4.50%--handle_mm_fault
+            |                     |          
+            |                      --4.46%--__handle_mm_fault
+            |                                |          
+            |                                 --4.28%--do_anonymous_page
+            |                                           |          
+            |                                           |--3.01%--vma_alloc_folio
+            |                                           |          __folio_alloc
+            |                                           |          __alloc_pages
+            |                                           |          |          
+            |                                           |           --2.80%--clear_page_erms
+            |                                           |          
+            |                                            --0.79%--__mem_cgroup_charge
+            |                                                      |          
+            |                                                       --0.74%--charge_memcg
+            |          
+             --1.09%--_start
+                       __libc_start_main
+                       0x7d4b1342a601
+                       |          
+                        --0.96%--0x7d4b1359855e
+                                  asm_exc_page_fault
+                                  exc_page_fault
+                                  do_user_addr_fault
+
+     4.59%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b1359855e
+            |
+            ---0x7d4b1359855e
+               |          
+                --4.37%--asm_exc_page_fault
+                          exc_page_fault
+                          do_user_addr_fault
+                          |          
+                           --3.32%--handle_mm_fault
+                                     |          
+                                      --3.28%--__handle_mm_fault
+                                                |          
+                                                 --3.23%--do_anonymous_page
+                                                           |          
+                                                            --2.45%--vma_alloc_folio
+                                                                      __folio_alloc
+                                                                      __alloc_pages
+                                                                      |          
+                                                                       --2.36%--clear_page_erms
+
+     4.50%     0.00%  transpose_opt  [kernel.kallsyms]     [.] handle_mm_fault
+            |
+            ---handle_mm_fault
+               |          
+                --4.46%--__handle_mm_fault
+                          |          
+                           --4.28%--do_anonymous_page
+                                     |          
+                                     |--3.01%--vma_alloc_folio
+                                     |          __folio_alloc
+                                     |          __alloc_pages
+                                     |          |          
+                                     |           --2.80%--clear_page_erms
+                                     |          
+                                      --0.79%--__mem_cgroup_charge
+                                                |          
+                                                 --0.74%--charge_memcg
+
+     4.50%     0.09%  transpose_opt  [kernel.kallsyms]     [.] __handle_mm_fault
+            |          
+             --4.41%--__handle_mm_fault
+                       |          
+                        --4.28%--do_anonymous_page
+                                  |          
+                                  |--3.01%--vma_alloc_folio
+                                  |          __folio_alloc
+                                  |          __alloc_pages
+                                  |          |          
+                                  |           --2.80%--clear_page_erms
+                                  |          
+                                   --0.79%--__mem_cgroup_charge
+                                             |          
+                                              --0.74%--charge_memcg
+
+     4.28%     0.04%  transpose_opt  [kernel.kallsyms]     [.] do_anonymous_page
+            |          
+             --4.24%--do_anonymous_page
+                       |          
+                       |--3.01%--vma_alloc_folio
+                       |          __folio_alloc
+                       |          __alloc_pages
+                       |          |          
+                       |           --2.80%--clear_page_erms
+                       |          
+                        --0.79%--__mem_cgroup_charge
+                                  |          
+                                   --0.74%--charge_memcg
+
+     4.02%     0.00%  transpose_opt  transpose_opt         [.] fill_matrix(float*, int) (inlined)
+            |
+            ---fill_matrix(float*, int) (inlined)
+               |          
+               |--1.44%--rand
+               |          |          
+               |          |--0.79%--random_r
+               |          |          
+               |           --0.66%--random
+               |          
+                --1.22%--asm_exc_page_fault
+                          exc_page_fault
+                          do_user_addr_fault
+                          |          
+                           --1.05%--handle_mm_fault
+                                     __handle_mm_fault
+                                     do_anonymous_page
+                                     |          
+                                      --0.57%--vma_alloc_folio
+                                                __folio_alloc
+                                                __alloc_pages
+
+     3.06%     0.04%  transpose_opt  [kernel.kallsyms]     [.] __alloc_pages
+            |          
+             --3.01%--__alloc_pages
+                       |          
+                        --2.84%--clear_page_erms
+
+     3.01%     0.00%  transpose_opt  [kernel.kallsyms]     [.] vma_alloc_folio
+            |
+            ---vma_alloc_folio
+               __folio_alloc
+               __alloc_pages
+               |          
+                --2.80%--clear_page_erms
+
+     3.01%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __folio_alloc
+            |
+            ---__folio_alloc
+               __alloc_pages
+               |          
+                --2.80%--clear_page_erms
+
+     2.84%     2.84%  transpose_opt  [kernel.kallsyms]     [k] clear_page_erms
+            |
+            ---_start
+               __libc_start_main
+               0x7d4b1342a601
+               |          
+                --2.36%--0x7d4b1359855e
+                          asm_exc_page_fault
+                          exc_page_fault
+                          do_user_addr_fault
+                          handle_mm_fault
+                          __handle_mm_fault
+                          do_anonymous_page
+                          vma_alloc_folio
+                          __folio_alloc
+                          __alloc_pages
+                          clear_page_erms
+
+     1.79%     0.35%  transpose_opt  libc.so.6             [.] rand
+            |          
+             --1.44%--rand
+                       |          
+                       |--0.79%--random_r
+                       |          
+                        --0.66%--random
+
+     1.40%     0.00%  transpose_opt  [kernel.kallsyms]     [.] entry_SYSCALL_64_after_hwframe
+            |
+            ---entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               |          
+                --1.14%--__x64_sys_munmap
+                          __vm_munmap
+                          do_vmi_munmap
+                          do_vmi_align_munmap
+                          |          
+                           --1.09%--unmap_region.constprop.0
+                                     |          
+                                      --0.70%--tlb_finish_mmu
+                                                tlb_batch_pages_flush
+                                                free_pages_and_swap_cache
+                                                release_pages
+
+     1.40%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_syscall_64
+            |
+            ---do_syscall_64
+               x64_sys_call
+               |          
+                --1.14%--__x64_sys_munmap
+                          __vm_munmap
+                          do_vmi_munmap
+                          do_vmi_align_munmap
+                          |          
+                           --1.09%--unmap_region.constprop.0
+                                     |          
+                                      --0.70%--tlb_finish_mmu
+                                                tlb_batch_pages_flush
+                                                free_pages_and_swap_cache
+                                                release_pages
+
+     1.40%     0.00%  transpose_opt  [kernel.kallsyms]     [.] x64_sys_call
+            |
+            ---x64_sys_call
+               |          
+                --1.14%--__x64_sys_munmap
+                          __vm_munmap
+                          do_vmi_munmap
+                          do_vmi_align_munmap
+                          |          
+                           --1.09%--unmap_region.constprop.0
+                                     |          
+                                      --0.70%--tlb_finish_mmu
+                                                tlb_batch_pages_flush
+                                                free_pages_and_swap_cache
+                                                release_pages
+
+     1.31%     0.00%  transpose_opt  transpose_opt         [.] verify(float const*, float const*, int) (inlined)
+            |
+            ---verify(float const*, float const*, int) (inlined)
+
+     1.14%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __x64_sys_munmap
+            |
+            ---__x64_sys_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               |          
+                --1.09%--unmap_region.constprop.0
+                          |          
+                           --0.70%--tlb_finish_mmu
+                                     tlb_batch_pages_flush
+                                     free_pages_and_swap_cache
+                                     release_pages
+
+     1.14%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __vm_munmap
+            |
+            ---__vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               |          
+                --1.09%--unmap_region.constprop.0
+                          |          
+                           --0.70%--tlb_finish_mmu
+                                     tlb_batch_pages_flush
+                                     free_pages_and_swap_cache
+                                     release_pages
+
+     1.14%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_vmi_munmap
+            |
+            ---do_vmi_munmap
+               do_vmi_align_munmap
+               |          
+                --1.09%--unmap_region.constprop.0
+                          |          
+                           --0.70%--tlb_finish_mmu
+                                     tlb_batch_pages_flush
+                                     free_pages_and_swap_cache
+                                     release_pages
+
+     1.14%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_vmi_align_munmap
+            |
+            ---do_vmi_align_munmap
+               |          
+                --1.09%--unmap_region.constprop.0
+                          |          
+                           --0.70%--tlb_finish_mmu
+                                     tlb_batch_pages_flush
+                                     free_pages_and_swap_cache
+                                     release_pages
+
+     1.09%     0.00%  transpose_opt  libc.so.6             [.] __munmap
+            |
+            ---__munmap
+               entry_SYSCALL_64_after_hwframe
+               do_syscall_64
+               x64_sys_call
+               __x64_sys_munmap
+               __vm_munmap
+               do_vmi_munmap
+               do_vmi_align_munmap
+               unmap_region.constprop.0
+               |          
+                --0.70%--tlb_finish_mmu
+                          tlb_batch_pages_flush
+                          free_pages_and_swap_cache
+                          release_pages
+
+     1.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] unmap_region.constprop.0
+            |
+            ---unmap_region.constprop.0
+               |          
+                --0.70%--tlb_finish_mmu
+                          tlb_batch_pages_flush
+                          free_pages_and_swap_cache
+                          release_pages
+
+     0.92%     0.92%  transpose_opt  libc.so.6             [.] random
+            |
+            ---_start
+               __libc_start_main
+               0x7d4b1342a601
+               main
+               fill_matrix(float*, int) (inlined)
+               |          
+                --0.66%--rand
+                          random
+
+     0.83%     0.13%  transpose_opt  [kernel.kallsyms]     [k] release_pages
+            |          
+             --0.70%--release_pages
+
+     0.79%     0.79%  transpose_opt  libc.so.6             [.] random_r
+            |
+            ---_start
+               __libc_start_main
+               0x7d4b1342a601
+               main
+               fill_matrix(float*, int) (inlined)
+               rand
+               random_r
+
+     0.79%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __mem_cgroup_charge
+            |
+            ---__mem_cgroup_charge
+               |          
+                --0.74%--charge_memcg
+
+     0.74%     0.52%  transpose_opt  [kernel.kallsyms]     [k] charge_memcg
+            |          
+             --0.52%--_start
+                       __libc_start_main
+                       0x7d4b1342a601
+
+     0.74%     0.00%  transpose_opt  [kernel.kallsyms]     [.] tlb_finish_mmu
+            |
+            ---tlb_finish_mmu
+               tlb_batch_pages_flush
+               free_pages_and_swap_cache
+               release_pages
+
+     0.74%     0.00%  transpose_opt  [kernel.kallsyms]     [.] tlb_batch_pages_flush
+            |
+            ---tlb_batch_pages_flush
+               free_pages_and_swap_cache
+               release_pages
+
+     0.74%     0.00%  transpose_opt  [kernel.kallsyms]     [.] free_pages_and_swap_cache
+            |
+            ---free_pages_and_swap_cache
+               release_pages
+
+     0.61%     0.61%  transpose_opt  [kernel.kallsyms]     [k] _raw_spin_unlock_irqrestore
+            |
+            ---_start
+               __libc_start_main
+               0x7d4b1342a601
+
+     0.48%     0.00%  transpose_opt  [kernel.kallsyms]     [.] unmap_vmas
+     0.48%     0.00%  transpose_opt  [kernel.kallsyms]     [.] unmap_single_vma
+     0.44%     0.04%  transpose_opt  [kernel.kallsyms]     [.] free_unref_page_list
+     0.39%     0.04%  transpose_opt  [kernel.kallsyms]     [.] __mod_lruvec_state
+     0.39%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __mod_lruvec_page_state
+     0.35%     0.09%  transpose_opt  [kernel.kallsyms]     [.] free_unref_page_commit
+     0.35%     0.09%  transpose_opt  [kernel.kallsyms]     [.] page_remove_rmap
+     0.35%     0.04%  transpose_opt  [kernel.kallsyms]     [.] unmap_page_range
+     0.31%     0.13%  transpose_opt  [kernel.kallsyms]     [.] __mod_memcg_lruvec_state
+     0.31%     0.04%  transpose_opt  [kernel.kallsyms]     [.] folio_add_lru
+     0.31%     0.00%  transpose_opt  [kernel.kallsyms]     [.] folio_add_lru_vma
+     0.26%     0.26%  transpose_opt  libc.so.6             [.] 0x0000000000198563
+     0.26%     0.00%  transpose_opt  [kernel.kallsyms]     [.] free_pcppages_bulk
+     0.26%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b13598563
+     0.22%     0.17%  transpose_opt  [kernel.kallsyms]     [k] try_charge_memcg
+     0.22%     0.22%  transpose_opt  libc.so.6             [.] 0x000000000019855e
+     0.22%     0.00%  transpose_opt  [kernel.kallsyms]     [.] folio_batch_move_lru
+     0.17%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b49348
+     0.17%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4a4e1
+     0.17%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b48dc6
+     0.17%     0.00%  transpose_opt  [kernel.kallsyms]     [.] get_page_from_freelist
+     0.13%     0.13%  transpose_opt  [kernel.kallsyms]     [k] check_preemption_disabled
+     0.13%     0.00%  transpose_opt  libstdc++.so.6.0.35   [.] std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_fault
+     0.13%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __this_cpu_preempt_check
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __do_fault
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] filemap_fault
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] page_cache_ra_order
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __x64_sys_exit_group
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_group_exit
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_exit
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] mmput
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __mmput
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] exit_mmap
+     0.13%     0.00%  transpose_opt  [kernel.kallsyms]     [.] folio_add_new_anon_rmap
+     0.13%     0.13%  transpose_opt  transpose_opt         [.] rand@plt
+     0.09%     0.09%  transpose_opt  [kernel.kallsyms]     [k] __rcu_read_lock
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] _IO_fwrite
+     0.09%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4c24f
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] _IO_file_xsputn
+     0.09%     0.09%  transpose_opt  [kernel.kallsyms]     [k] preempt_count_add
+     0.09%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b29e30
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] _IO_do_write
+     0.09%     0.04%  transpose_opt  [kernel.kallsyms]     [k] _raw_spin_trylock
+     0.09%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] _dl_catch_exception
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] _IO_file_write
+     0.09%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b299fd
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] write
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b1342a608
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] page_cache_ra_unbounded
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b134486be
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b134a03e6
+     0.09%     0.09%  transpose_opt  [kernel.kallsyms]     [k] _compound_head
+     0.09%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b134485e1
+     0.09%     0.09%  transpose_opt  [kernel.kallsyms]     [k] up_read
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __x64_sys_write
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] ksys_write
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] vfs_write
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] tty_write
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] file_tty_write.constprop.0
+     0.09%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __mem_cgroup_uncharge_list
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] rcu_nocb_unlock_irqrestore.part.0
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __dma_map_sg_attrs
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] queue_work_on
+     0.04%     0.00%  transpose_opt  transpose_opt         [.] std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*) (inlined)
+     0.04%     0.00%  transpose_opt  libstdc++.so.6.0.35   [.] std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, double) const
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __virt_addr_valid
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __memset
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __list_add_valid_or_report
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] uncharge_folio
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] filemap_add_folio
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] mas_store_b_node
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __mod_node_page_state
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] page_counter_try_charge
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b3098a
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4c73b
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] read_pages
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b2f1bc
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4fa1b
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] blk_finish_plug
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4f95c
+     0.04%     0.00%  transpose_opt  libstdc++.so.6.0.35   [.] 0x00007d4b139fd364
+     0.04%     0.04%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x000000000002c2e8
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __blk_flush_plug
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] mem_cgroup_from_task
+     0.04%     0.04%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x000000000000b948
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] blk_mq_flush_plug_list
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] cgroup_rstat_updated
+     0.04%     0.04%  transpose_opt  [kernel.kallsyms]     [k] __rcu_read_unlock
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] asm_sysvec_hyperv_stimer0
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] blk_mq_flush_plug_list.part.0
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b2c6f0
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __x64_sys_mmap
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] blk_mq_plug_issue_direct
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] sysvec_hyperv_stimer0
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b280d2
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] blk_mq_request_issue_directly
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] irq_exit_rcu
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] ksys_mmap_pgoff
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b4c5c3
+     0.04%     0.00%  transpose_opt  libstdc++.so.6.0.35   [.] 0x00007d4b138bff47
+     0.04%     0.04%  transpose_opt  libc.so.6             [.] 0x00000000000b2359
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __blk_mq_issue_directly
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __irq_exit_rcu
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] filemap_alloc_folio
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] vm_mmap_pgoff
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b3a581
+     0.04%     0.00%  transpose_opt  libstdc++.so.6.0.35   [.] 0x00007d4b139e80b0
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] do_mmap
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] folio_alloc
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] handle_softirqs
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] mas_store_gfp
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] n_tty_write
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] scsi_queue_rq
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b37051
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] alloc_pages
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] mas_wr_store_entry.isra.0
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] mmap_region
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] pty_write
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] rcu_core_si
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] storvsc_queuecommand
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b31500
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b327ac
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __check_object_size
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] __rmqueue_pcplist
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] debug_smp_processor_id
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] mas_wr_spanning_store.isra.0
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] rcu_core
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] scsi_dma_map
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] tty_insert_flip_string_and_push_buffer
+     0.04%     0.00%  transpose_opt  [kernel.kallsyms]     [.] vm_area_alloc
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b307f2
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b31e9f
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b31948
+     0.04%     0.00%  transpose_opt  ld-linux-x86-64.so.2  [.] 0x00007d4b13b522e8
+     0.04%     0.00%  transpose_opt  libc.so.6             [.] 0x00007d4b134b2359
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

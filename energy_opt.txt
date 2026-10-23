@@ -1,0 +1,8 @@
+============================================
+Program:        ./transpose_opt
+Elapsed time:   .753 s
+CPU load:       13.00%
+TDP:            15 W
+Estimated power: 1.95 W
+Estimated energy: 1.4683 J
+============================================
