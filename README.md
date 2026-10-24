@@ -14,27 +14,29 @@
 - **`transpose_blocked`** — блочне транспонування (tile size 64×64). Блок повністю вміщається в L1/L2 кеш → суттєво менше cache misses
 
 ---
-
 ## Структура репозиторію
+
+```
 lab2-sysProg/
 ├── src/
-│ └── matrix_transpose.cpp # вихідний код програми
+│   └── matrix_transpose.cpp
 ├── scripts/
-│ └── measure_energy.sh # скрипт оцінки енерговитрат
+│   └── measure_energy.sh
 ├── results/
-│ ├── time_no_opt.txt
-│ ├── time_opt.txt
-│ ├── perf_stat_no_opt.txt
-│ ├── perf_stat_opt.txt
-│ ├── perf_report_no_opt.txt
-│ ├── perf_report_opt.txt
-│ ├── energy_no_opt.txt
-│ └── energy_opt.txt
+│   ├── time_no_opt.txt
+│   ├── time_opt.txt
+│   ├── perf_stat_no_opt.txt
+│   ├── perf_stat_opt.txt
+│   ├── perf_report_no_opt.txt
+│   ├── perf_report_opt.txt
+│   ├── energy_no_opt.txt
+│   └── energy_opt.txt
 ├── flamegraphs/
-│ ├── flamegraph_no_opt.svg
-│ └── flamegraph_opt.svg
+│   ├── flamegraph_no_opt.svg
+│   └── flamegraph_opt.svg
 ├── Makefile
 └── README.md
+```
 
 ---
 
